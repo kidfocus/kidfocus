@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - KidFocus</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,252 +16,661 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #45B7D1;
+            --success: #96CEB4;
+            --warning: #FFEAA7;
+            --purple: #A29BFE;
+            --orange: #FD79A8;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --bg-light: #F8F9FA;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
-            background: white;
-            min-height: 100vh;
+            padding: 0 20px;
         }
         
-        header {
-            text-align: center;
-            padding: 40px 0;
-            border-bottom: 2px solid #f0f0f0;
-            margin-bottom: 40px;
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #007AFF;
-            margin-bottom: 10px;
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .page-title {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 10px;
+        .nav-logo {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .last-updated {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .content {
-            line-height: 1.8;
-        }
-        
-        h1 {
-            font-size: 1.8rem;
-            color: #333;
-            margin: 30px 0 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.4rem;
-            color: #444;
-            margin: 25px 0 12px 0;
-        }
-        
-        h3 {
-            font-size: 1.2rem;
-            color: #555;
-            margin: 20px 0 10px 0;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        
-        .highlight {
-            background: #f8f9fa;
-            padding: 20px;
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
-            border-left: 4px solid #007AFF;
-            margin: 20px 0;
         }
         
-        .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
         }
         
-        .back-link {
-            display: inline-block;
-            margin: 30px 0;
-            color: #007AFF;
+        .nav-links a {
+            color: white;
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.9;
         }
         
-        .back-link:hover {
-            text-decoration: underline;
+        .nav-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .nav-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        
+        .hero-download-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .hero-download-btn {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Fredoka', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-top: 20px;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: white;
+            border-radius: 30px;
+            padding: 80px 40px;
+            margin: 60px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .content-section h2 {
+            font-family: 'Fredoka', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .content-section h3 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .content-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .content-section a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .terms-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .terms-feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terms-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--orange));
+        }
+        
+        .terms-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .terms-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .terms-feature-card h4 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .terms-feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .showcase-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .showcase-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .showcase-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .last-updated {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
             }
             
-            .logo {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                min-height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 40px 20px;
+            }
+            
+            .content-section h2 {
                 font-size: 2rem;
             }
             
-            .page-title {
+            .content-section h3 {
                 font-size: 1.5rem;
+            }
+            
+            .terms-feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-showcase {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">🎯 KidFocus</div>
-            <h1 class="page-title">Terms of Service</h1>
-            <p class="last-updated">Last updated: January 2025</p>
-        </header>
-        
-        <div class="content">
-            <div class="highlight">
-                <strong>Please read these Terms of Service carefully before using KidFocus. By using our app, you agree to be bound by these terms.</strong>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg" alt="KidFocus Logo">
+                <span>🎯 KidFocus</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="support.html">Support</a>
+                <a href="https://apple.co/4mmZc5L" class="nav-download-btn" target="_blank" rel="noopener noreferrer">
+                    📱 Download Now
+                </a>
             </div>
-            
-            <h1>1. Acceptance of Terms</h1>
-            <p>By downloading, installing, or using the KidFocus mobile application ("App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-            
-            <h1>2. Description of Service</h1>
-            <p>KidFocus is a family task management application designed to help parents and children build better habits together. The App provides features including:</p>
-            <ul>
-                <li>Task creation and management</li>
-                <li>Progress tracking and analytics</li>
-                <li>Focus timer functionality</li>
-                <li>Reward system and point tracking</li>
-                <li>Family dashboard and management</li>
-                <li>Cloud synchronization</li>
-            </ul>
-            
-            <h1>3. User Accounts and Registration</h1>
-            <h2>3.1 Account Creation</h2>
-            <p>To use certain features of the App, you must create an account using Apple Sign In. You are responsible for maintaining the confidentiality of your account information.</p>
-            
-            <h2>3.2 Age Requirements</h2>
-            <p>You must be at least 13 years old to create an account. For users under 18, parental consent is required. Parents are responsible for supervising their children's use of the App.</p>
-            
-            <h2>3.3 Account Responsibilities</h2>
-            <p>You are responsible for all activities that occur under your account. You must notify us immediately of any unauthorized use of your account.</p>
-            
-            <h2>3.4 Account Deletion</h2>
-            <p>You may delete your account at any time through the App settings. Account deletion is permanent and will result in the removal of all your data, including:</p>
-            <ul>
-                <li>Your profile information</li>
-                <li>All tasks and activities</li>
-                <li>Progress data and achievements</li>
-                <li>If you are a parent, all child accounts and their data</li>
-            </ul>
-            <p>Once your account is deleted, it cannot be recovered. You will need to create a new account if you wish to use the App again.</p>
-            
-            <h1>4. Subscription Services</h1>
-            <h2>4.1 Premium Features</h2>
-            <p>KidFocus offers premium features through subscription plans. Subscription details are available in the App and are subject to change with notice.</p>
-            
-            <h2>4.2 Billing and Payment</h2>
-            <p>All payments are processed through the Apple App Store. By purchasing a subscription, you authorize Apple to charge your payment method for the subscription fee.</p>
-            
-            <h2>4.3 Subscription Terms</h2>
-            <ul>
-                <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period</li>
-                <li>You can cancel subscriptions through your Apple ID account settings</li>
-                <li>No refunds are provided for unused portions of subscription periods</li>
-                <li>Subscription prices may change with 30 days' notice</li>
-            </ul>
-            
-            <h2>4.4 Free Trial</h2>
-            <p>We may offer free trials for premium features. Free trials automatically convert to paid subscriptions unless cancelled before the trial period ends.</p>
-            
-            <h1>5. Acceptable Use</h1>
-            <h2>5.1 Prohibited Activities</h2>
-            <p>You agree not to:</p>
-            <ul>
-                <li>Use the App for any illegal or unauthorized purpose</li>
-                <li>Attempt to gain unauthorized access to our systems</li>
-                <li>Interfere with or disrupt the App's functionality</li>
-                <li>Share your account credentials with others</li>
-                <li>Create inappropriate or harmful content</li>
-                <li>Use the App to harass, abuse, or harm others</li>
-            </ul>
-            
-            <h2>5.2 Content Guidelines</h2>
-            <p>When creating tasks or content in the App, you must ensure all content is appropriate for children and families. We reserve the right to remove inappropriate content.</p>
-            
-            <h1>6. Privacy and Data Protection</h1>
-            <p>Your privacy is important to us. Our collection and use of personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference.</p>
-            
-            <h1>7. Intellectual Property</h1>
-            <h2>7.1 App Ownership</h2>
-            <p>KidFocus and all related content, features, and functionality are owned by us and are protected by copyright, trademark, and other intellectual property laws.</p>
-            
-            <h2>7.2 User Content</h2>
-            <p>You retain ownership of content you create in the App. By using the App, you grant us a license to store and process your content to provide the service.</p>
-            
-            <h1>8. Disclaimers and Limitations</h1>
-            <h2>8.1 Service Availability</h2>
-            <p>We strive to provide reliable service but cannot guarantee uninterrupted access. The App is provided "as is" without warranties of any kind.</p>
-            
-            <h2>8.2 Limitation of Liability</h2>
-            <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the App.</p>
-            
-            <h1>9. Termination</h1>
-            <h2>9.1 Termination by You</h2>
-            <p>You may stop using the App at any time. Cancelling your subscription will terminate access to premium features.</p>
-            
-            <h2>9.2 Termination by Us</h2>
-            <p>We may terminate or suspend your account if you violate these Terms or for any other reason at our discretion.</p>
-            
-            <h1>10. Changes to Terms</h1>
-            <p>We may update these Terms from time to time. We will notify you of significant changes through the App or by email. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
-            
-            <h1>11. Governing Law</h1>
-            <p>These Terms are governed by the laws of the jurisdiction where our company is located, without regard to conflict of law principles.</p>
-            
-            <h1>12. Contact Information</h1>
-            <div class="contact-info">
-                <p><strong>For questions about these Terms of Service, please contact us:</strong></p>
-                <p>Email: support@kidfocus.app</p>
-                <p>Website: <a href="index.html">kidfocus.app</a></p>
-            </div>
-            
-            <h1>13. Severability</h1>
-            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
-            
-            <h1>14. Entire Agreement</h1>
-            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and us regarding the use of the KidFocus App.</p>
-            
-            <a href="index.html" class="back-link">← Back to Home</a>
         </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <a href="https://apple.co/4mmZc5L" class="hero-download-btn" target="_blank" rel="noopener noreferrer">
+                📱 Download Now
+            </a>
+            <div class="hero-background">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/hero.jpg" alt="KidFocus Hero" loading="eager">
+            </div>
+            <div class="hero-content">
+                <h1>📜 Terms of Service</h1>
+                <p class="hero-subtitle">Understanding your rights and responsibilities</p>
+            </div>
+        </section>
+        
+        <!-- Terms of Service Content -->
+        <section class="content-section">
+            <h2>Welcome to KidFocus</h2>
+            <p>By downloading, installing, or using the KidFocus app, you agree to be bound by these Terms of Service. Please read them carefully before using our service.</p>
+            
+            <!-- Terms Features Grid -->
+            <div class="terms-feature-grid">
+                <div class="terms-feature-card">
+                    <div class="terms-feature-icon">✅</div>
+                    <h4>Acceptance of Terms</h4>
+                    <p>By using KidFocus, you acknowledge that you have read, understood, and agree to be bound by these terms and all applicable laws and regulations.</p>
+                </div>
+                <div class="terms-feature-card">
+                    <div class="terms-feature-icon">👨‍👩‍👧‍👦</div>
+                    <h4>Family Account</h4>
+                    <p>Parents are responsible for managing their family accounts and ensuring appropriate use of the app by their children.</p>
+                </div>
+                <div class="terms-feature-card">
+                    <div class="terms-feature-icon">🔒</div>
+                    <h4>User Responsibilities</h4>
+                    <p>You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
+                </div>
+            </div>
+            
+            <!-- Image Showcase -->
+            <div class="image-showcase">
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/tasks%20instantly.jpg" alt="Tasks Instantly">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/task%20completion.jpg" alt="Task Completion">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/earn%20rewards.jpg" alt="Earn Rewards">
+                </div>
+            </div>
+            
+            <h3>1. Description of Service</h3>
+            <p>KidFocus is a family task management application designed to help parents and children build better habits together. The service includes:</p>
+            <ul>
+                <li>Task creation and assignment tools</li>
+                <li>Progress tracking and reward systems</li>
+                <li>Focus timer functionality</li>
+                <li>Family dashboard and analytics</li>
+                <li>Cloud synchronization across devices</li>
+            </ul>
+            
+            <h3>2. Eligibility and Account Requirements</h3>
+            <p><strong>Age Requirements:</strong> KidFocus is designed for families with children ages 5-15. Parents must be at least 18 years old to create an account.</p>
+            
+            <p><strong>Account Creation:</strong> Parents must sign in using Apple ID to create an account. Children access the app using a 6-character login code provided by the parent.</p>
+            
+            <p><strong>Account Security:</strong> You are responsible for maintaining the security of your account credentials and login codes. Notify us immediately if you suspect unauthorized access.</p>
+            
+            <h3>3. Subscription and Payment Terms</h3>
+            <p><strong>Free Features:</strong> Basic task management features are available free of charge.</p>
+            
+            <p><strong>Premium Subscription:</strong> Additional features may require a paid subscription. Subscriptions are billed through the App Store and are subject to Apple's payment terms.</p>
+            
+            <p><strong>Auto-Renewal:</strong> Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. You can manage subscriptions in your App Store account settings.</p>
+            
+            <p><strong>Refunds:</strong> Refund requests must be submitted through Apple's refund process. We do not process refunds directly.</p>
+            
+            <h3>4. User Conduct and Responsibilities</h3>
+            <p>You agree to use KidFocus only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+            <ul>
+                <li>Use the service for any illegal or unauthorized purpose</li>
+                <li>Violate any laws in your jurisdiction</li>
+                <li>Transmit any viruses, malware, or harmful code</li>
+                <li>Attempt to gain unauthorized access to the service</li>
+                <li>Interfere with or disrupt the service or servers</li>
+                <li>Create inappropriate or offensive content</li>
+            </ul>
+            
+            <h3>5. Intellectual Property Rights</h3>
+            <p><strong>Our Rights:</strong> The KidFocus app, including its design, features, and content, is protected by copyright, trademark, and other intellectual property laws. All rights are reserved.</p>
+            
+            <p><strong>Your Content:</strong> You retain ownership of any content you create within the app (tasks, notes, etc.). By using the service, you grant us a license to store and process this content to provide the service.</p>
+            
+            <h3>6. Privacy and Data Protection</h3>
+            <p>Your privacy is important to us. Please review our <a href="privacy.html">Privacy Policy</a> to understand how we collect, use, and protect your information. By using KidFocus, you consent to our privacy practices as described in the Privacy Policy.</p>
+            
+            <h3>7. Service Availability and Modifications</h3>
+            <p><strong>Availability:</strong> We strive to maintain service availability but do not guarantee uninterrupted access. The service may be unavailable due to maintenance, updates, or unforeseen circumstances.</p>
+            
+            <p><strong>Modifications:</strong> We reserve the right to modify, suspend, or discontinue any aspect of the service at any time, with or without notice.</p>
+            
+            <h3>8. Limitation of Liability</h3>
+            <p>To the maximum extent permitted by law, KidFocus and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from your use of the service.</p>
+            
+            <h3>9. Indemnification</h3>
+            <p>You agree to indemnify and hold harmless KidFocus, its developers, and affiliates from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of the service or violation of these Terms.</p>
+            
+            <h3>10. Termination</h3>
+            <p><strong>By You:</strong> You may stop using the service at any time by deleting the app or your account.</p>
+            
+            <p><strong>By Us:</strong> We reserve the right to suspend or terminate your access to the service if you violate these Terms or engage in any activity that we deem harmful to the service or other users.</p>
+            
+            <h3>11. Changes to Terms</h3>
+            <p>We may update these Terms of Service from time to time. We will notify you of significant changes by posting the updated terms on this page and updating the "Last Updated" date. Your continued use of the service after changes become effective constitutes acceptance of the new terms.</p>
+            
+            <h3>12. Governing Law</h3>
+            <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Hokfam Ltd operates, without regard to its conflict of law provisions.</p>
+            
+            <h3>13. Contact Information</h3>
+            <p>If you have any questions about these Terms of Service, please contact us:</p>
+            <p><strong>Email:</strong> <a href="mailto:support@kidfocus.app">support@kidfocus.app</a></p>
+            <p><strong>Support Page:</strong> <a href="support.html">kidfocus.github.io/kidfocus/support.html</a></p>
+            
+            <p class="last-updated"><strong>Last Updated:</strong> January 2025</p>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎯 KidFocus</h3>
+                    <p>Making family task management fun and engaging for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Features</h3>
+                    <div class="footer-links">
+                        <a href="index.html#features">Task Management</a>
+                        <a href="index.html#features">Focus Timer</a>
+                        <a href="index.html#features">Rewards</a>
+                        <a href="index.html#features">Progress Tracking</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="mailto:support@kidfocus.app">support@kidfocus.app</a>
+                        <a href="support.html">Help Center</a>
+                        <a href="support.html">Feedback</a>
+                        <a href="#">Partnership</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © 2025 KidFocus. All rights reserved. Made with ❤️ for families everywhere.
+            </div>
+        </footer>
     </div>
 </body>
-</html> 
+</html>
