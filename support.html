@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - KidFocus</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,374 +16,722 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #45B7D1;
+            --success: #96CEB4;
+            --warning: #FFEAA7;
+            --purple: #A29BFE;
+            --orange: #FD79A8;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --bg-light: #F8F9FA;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
-            background: white;
-            min-height: 100vh;
+            padding: 0 20px;
         }
         
-        header {
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .nav-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 2px solid #f0f0f0;
-            margin-bottom: 40px;
+            color: white;
+            overflow: hidden;
+            margin-top: 80px;
         }
         
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #007AFF;
-            margin-bottom: 10px;
-        }
-        
-        .page-title {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: #666;
-            font-size: 1.1rem;
-        }
-        
-        .content {
-            line-height: 1.8;
-        }
-        
-        h1 {
-            font-size: 1.8rem;
-            color: #333;
-            margin: 30px 0 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.4rem;
-            color: #444;
-            margin: 25px 0 12px 0;
-        }
-        
-        h3 {
-            font-size: 1.2rem;
-            color: #555;
-            margin: 20px 0 10px 0;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        
-        .highlight {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #007AFF;
-            margin: 20px 0;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin: 30px 0;
-            color: #007AFF;
+        .hero-download-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: white;
+            padding: 12px 24px;
             text-decoration: none;
-            font-weight: 500;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
         
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .faq-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .faq-question {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .faq-answer {
-            color: #555;
-        }
-        
-        .support-section {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .support-section h3 {
-            color: #007AFF;
-            margin-bottom: 15px;
-        }
-        
-        .email-link {
-            color: #007AFF;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .email-link:hover {
-            text-decoration: underline;
+        .hero-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .hero-download-btn {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Fredoka', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-top: 20px;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: white;
+            border-radius: 30px;
+            padding: 80px 40px;
+            margin: 60px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .content-section h2 {
+            font-family: 'Fredoka', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .content-section h3 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .content-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .content-section a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+        
+        .support-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .support-feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .support-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--orange));
+        }
+        
+        .support-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .support-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .support-feature-card h4 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .support-feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        
+        .faq-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        
+        .faq-question {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .faq-answer {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+        
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .showcase-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .showcase-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .showcase-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            margin: 40px 0;
+        }
+        
+        .contact-card h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card a {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .contact-card a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
             }
             
-            .logo {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                min-height: 50vh;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 40px 20px;
+            }
+            
+            .content-section h2 {
                 font-size: 2rem;
             }
             
-            .page-title {
+            .content-section h3 {
                 font-size: 1.5rem;
+            }
+            
+            .support-feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-showcase {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg" alt="KidFocus Logo">
+                <span>🎯 KidFocus</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="support.html">Support</a>
+                <a href="https://apple.co/4mmZc5L" class="nav-download-btn" target="_blank" rel="noopener noreferrer">
+                    📱 Download Now
+                </a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="container">
-        <header>
-            <div class="logo">🎯 KidFocus</div>
-            <h1 class="page-title">Support Center</h1>
-            <p class="subtitle">We're here to help you get the most out of KidFocus</p>
-        </header>
+        <!-- Hero Section -->
+        <section class="hero">
+            <a href="https://apple.co/4mmZc5L" class="hero-download-btn" target="_blank" rel="noopener noreferrer">
+                📱 Download Now
+            </a>
+            <div class="hero-background">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/hero.jpg" alt="KidFocus Hero" loading="eager">
+            </div>
+            <div class="hero-content">
+                <h1>💬 Support Center</h1>
+                <p class="hero-subtitle">We're here to help you and your family</p>
+            </div>
+        </section>
         
-        <div class="content">
-            <div class="highlight">
-                <strong>Need help? We're here for you! Contact our support team for personalized assistance with any questions or issues.</strong>
-            </div>
+        <!-- Support Content -->
+        <section class="content-section">
+            <h2>How Can We Help?</h2>
+            <p>Welcome to the KidFocus Support Center! Find answers to common questions, learn how to use features, and get help when you need it.</p>
             
-            <h1>Contact Support</h1>
-            <div class="contact-info">
-                <h3>📧 Email Support</h3>
-                <p>For general questions and technical support:</p>
-                <p><a href="mailto:support@kidfocus.app" class="email-link">support@kidfocus.app</a></p>
-                
-                <h3>⏰ Response Time</h3>
-                <p>We typically respond within 24 hours during business days.</p>
-                
-                <h3>🌍 Support Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-            </div>
-            
-            <h1>Frequently Asked Questions</h1>
-            
-            <div class="faq-item">
-                <div class="faq-question">How do I create my first task?</div>
-                <div class="faq-answer">
-                    <ol>
-                        <li>Open the KidFocus app and sign in</li>
-                        <li>Tap the "Add Task" button on the parent dashboard</li>
-                        <li>Fill in the task details (title, description, points, due date)</li>
-                        <li>Select which child the task is for</li>
-                        <li>Tap "Create" to save the task</li>
-                    </ol>
+            <!-- Support Features Grid -->
+            <div class="support-feature-grid">
+                <div class="support-feature-card">
+                    <div class="support-feature-icon">📧</div>
+                    <h4>Email Support</h4>
+                    <p>Get personalized help from our support team. We respond within 24 hours.</p>
+                </div>
+                <div class="support-feature-card">
+                    <div class="support-feature-icon">📚</div>
+                    <h4>Help Articles</h4>
+                    <p>Browse our comprehensive guides and tutorials to learn how to use KidFocus.</p>
+                </div>
+                <div class="support-feature-card">
+                    <div class="support-feature-icon">⚡</div>
+                    <h4>Quick Answers</h4>
+                    <p>Find instant solutions to common questions in our FAQ section below.</p>
                 </div>
             </div>
             
-            <div class="faq-item">
-                <div class="faq-question">How does the focus timer work?</div>
-                <div class="faq-answer">
-                    The focus timer uses the Pomodoro technique to help children stay focused:
-                    <ul>
-                        <li>25-minute work sessions followed by 5-minute breaks</li>
-                        <li>After 4 work sessions, a longer 15-minute break</li>
-                        <li>Fun animations and progress indicators</li>
-                        <li>Customizable duration for different activities</li>
-                    </ul>
+            <!-- Image Showcase -->
+            <div class="image-showcase">
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/build%20early%20productivity.jpg" alt="Build Productivity">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/track%20progress.jpg" alt="Track Progress">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/tasks.jpg" alt="Tasks">
                 </div>
             </div>
             
+            <h3>Frequently Asked Questions</h3>
+            
             <div class="faq-item">
-                <div class="faq-question">How do I manage my subscription?</div>
-                <div class="faq-answer">
-                    <ol>
-                        <li>Open the app and go to Settings</li>
-                        <li>Tap "Manage Subscription"</li>
-                        <li>View your current subscription status</li>
-                        <li>Use the "Manage Subscriptions" button to access App Store settings</li>
-                        <li>Cancel or modify your subscription through Apple's subscription management</li>
-                    </ol>
-                </div>
+                <div class="faq-question">How do I create a child account?</div>
+                <div class="faq-answer">After signing in as a parent, tap "Add Child" on your dashboard. Enter your child's name and a profile picture (optional). The app will generate a unique 6-character login code that your child can use to access their account.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Can I use KidFocus with multiple children?</div>
-                <div class="faq-answer">
-                    Yes! KidFocus is designed for families with multiple children:
-                    <ul>
-                        <li>Create individual profiles for each child</li>
-                        <li>Assign tasks to specific children</li>
-                        <li>Track progress separately for each child</li>
-                        <li>View all children's activities in the family dashboard</li>
-                    </ul>
-                </div>
+                <div class="faq-question">How do I assign tasks to my children?</div>
+                <div class="faq-answer">Tap "Add Task" on your dashboard, fill in the task details (title, description, points, due date), and select which child should complete it. You can assign the same task to multiple children if needed.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">How do I restore my purchases?</div>
-                <div class="faq-answer">
-                    <ol>
-                        <li>Open the app and go to Settings</li>
-                        <li>Tap "Manage Subscription"</li>
-                        <li>Tap "Restore Purchases"</li>
-                        <li>Sign in with the same Apple ID used for the original purchase</li>
-                        <li>Your subscription will be restored automatically</li>
-                    </ol>
-                </div>
+                <div class="faq-question">What happens when my child completes a task?</div>
+                <div class="faq-answer">When a child marks a task as complete, they earn points, and you'll receive a notification. The child may also earn achievement badges based on their progress. Both you and your child will see the updated progress on your dashboards.</div>
             </div>
             
             <div class="faq-item">
-                <div class="faq-question">Is my data secure?</div>
-                <div class="faq-answer">
-                    Yes, we take data security seriously:
-                    <ul>
-                        <li>All data is encrypted using Apple's CloudKit</li>
-                        <li>Secure authentication through Apple Sign In</li>
-                        <li>No personal data is shared with third parties</li>
-                        <li>Compliance with privacy regulations (COPPA, GDPR)</li>
-                    </ul>
-                </div>
+                <div class="faq-question">How does the Focus Timer work?</div>
+                <div class="faq-answer">The Focus Timer uses the Pomodoro technique with work and break periods. Children can start a timer for any task, and the app will help them stay focused with fun animations and visual feedback.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I use KidFocus offline?</div>
+                <div class="faq-answer">Yes! KidFocus works offline. Your data will sync automatically when you reconnect to the internet. Tasks, progress, and rewards are all available offline.</div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">How do I delete my account?</div>
-                <div class="faq-answer">
-                    <ol>
-                        <li>Open the app and go to Settings (gear icon)</li>
-                        <li>Tap "Delete Account"</li>
-                        <li>Read the warning information carefully</li>
-                        <li>Confirm your decision in the popup dialogs</li>
-                        <li>Your account and all data will be permanently deleted</li>
-                    </ol>
-                    <p><strong>Important:</strong> Account deletion is permanent and cannot be undone. If you have a subscription, you should also cancel it in your Apple ID settings.</p>
+                <div class="faq-answer">Go to Settings in the app, tap "Delete Account," and confirm. This will permanently delete all your data, including tasks, progress, and child profiles. This action cannot be undone.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is my data secure?</div>
+                <div class="faq-answer">Yes! All data is stored securely using Apple's CloudKit service with enterprise-grade encryption. We don't share your data with third parties, and we comply with COPPA regulations for children's privacy.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I manage my subscription?</div>
+                <div class="faq-answer">Subscriptions are managed through your Apple ID in the App Store settings. You can view, modify, or cancel your subscription at any time through your device's Settings app under your Apple ID.</div>
+            </div>
+            
+            <h3>Getting Started Guide</h3>
+            <p>New to KidFocus? Follow these simple steps to get started:</p>
+            <ol>
+                <li><strong>Sign In:</strong> Open the app and sign in with your Apple ID as a parent.</li>
+                <li><strong>Add Your Family Name:</strong> Enter your family name when prompted (e.g., "The Smith Family").</li>
+                <li><strong>Add Children:</strong> Tap "Add Child" to create profiles for each of your children.</li>
+                <li><strong>Create Tasks:</strong> Start creating tasks and assigning them to your children.</li>
+                <li><strong>Share Login Codes:</strong> Give each child their unique 6-character login code so they can access their account.</li>
+                <li><strong>Track Progress:</strong> Monitor your children's progress, celebrate achievements, and watch them build great habits!</li>
+            </ol>
+            
+            <h3>Tips for Success</h3>
+            <ul>
+                <li>Set realistic point values for tasks based on difficulty and age</li>
+                <li>Use the Focus Timer to help children develop concentration skills</li>
+                <li>Celebrate achievements together as a family</li>
+                <li>Review progress regularly to see growth and improvement</li>
+                <li>Create recurring tasks for daily routines like homework or chores</li>
+                <li>Use descriptive task names and add fun descriptions to keep children engaged</li>
+            </ul>
+            
+            <!-- Contact Card -->
+            <div class="contact-card">
+                <h3>Still Need Help?</h3>
+                <p>Our support team is ready to assist you. Send us an email and we'll get back to you within 24 hours.</p>
+                <a href="mailto:support@kidfocus.app">📧 support@kidfocus.app</a>
+            </div>
+            
+            <h3>Report a Problem</h3>
+            <p>If you encounter a bug or technical issue, please email us at <a href="mailto:support@kidfocus.app">support@kidfocus.app</a> with the following information:</p>
+            <ul>
+                <li>Description of the problem</li>
+                <li>Steps to reproduce the issue</li>
+                <li>Your device model and iOS version</li>
+                <li>Screenshots if applicable</li>
+            </ul>
+            
+            <h3>Feature Requests</h3>
+            <p>We love hearing from our users! If you have ideas for new features or improvements, please share them with us at <a href="mailto:support@kidfocus.app">support@kidfocus.app</a>. Your feedback helps us make KidFocus better for everyone.</p>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎯 KidFocus</h3>
+                    <p>Making family task management fun and engaging for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Features</h3>
+                    <div class="footer-links">
+                        <a href="index.html#features">Task Management</a>
+                        <a href="index.html#features">Focus Timer</a>
+                        <a href="index.html#features">Rewards</a>
+                        <a href="index.html#features">Progress Tracking</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="mailto:support@kidfocus.app">support@kidfocus.app</a>
+                        <a href="support.html">Help Center</a>
+                        <a href="support.html">Feedback</a>
+                        <a href="#">Partnership</a>
+                    </div>
                 </div>
             </div>
             
-            <h1>Getting Started Guide</h1>
-            
-            <div class="support-section">
-                <h3>🚀 First Steps</h3>
-                <ol>
-                    <li><strong>Download and Install:</strong> Get KidFocus from the App Store</li>
-                    <li><strong>Sign In:</strong> Use Apple Sign In to create your account</li>
-                    <li><strong>Add Children:</strong> Create profiles for your children</li>
-                    <li><strong>Create Tasks:</strong> Start with simple, achievable tasks</li>
-                    <li><strong>Set Up Rewards:</strong> Define meaningful rewards for completed tasks</li>
-                </ol>
+            <div class="copyright">
+                © 2025 KidFocus. All rights reserved. Made with ❤️ for families everywhere.
             </div>
-            
-            <div class="support-section">
-                <h3>💡 Tips for Success</h3>
-                <ul>
-                    <li>Start with small, achievable tasks to build confidence</li>
-                    <li>Use the focus timer for homework and study sessions</li>
-                    <li>Celebrate achievements with meaningful rewards</li>
-                    <li>Review progress regularly with your children</li>
-                    <li>Adjust difficulty and rewards as children grow</li>
-                </ul>
-            </div>
-            
-            <h1>Troubleshooting</h1>
-            
-            <div class="support-section">
-                <h3>🔧 Common Issues</h3>
-                
-                <h4>App won't load</h4>
-                <ul>
-                    <li>Check your internet connection</li>
-                    <li>Restart the app</li>
-                    <li>Update to the latest version from the App Store</li>
-                </ul>
-                
-                <h4>Can't sign in</h4>
-                <ul>
-                    <li>Ensure you're using the correct Apple ID</li>
-                    <li>Check that Apple Sign In is enabled on your device</li>
-                    <li>Try signing out and back in</li>
-                </ul>
-                
-                <h4>Subscription not working</h4>
-                <ul>
-                    <li>Verify your subscription is active in App Store settings</li>
-                    <li>Try restoring purchases</li>
-                    <li>Check that you're signed in with the correct Apple ID</li>
-                </ul>
-                
-                <h4>Data not syncing</h4>
-                <ul>
-                    <li>Check your internet connection</li>
-                    <li>Ensure iCloud is enabled on your device</li>
-                    <li>Try signing out and back in to refresh the connection</li>
-                </ul>
-            </div>
-            
-            <h1>Feature Requests</h1>
-            <p>Have an idea for a new feature? We'd love to hear from you! Send your suggestions to <a href="mailto:support@kidfocus.app" class="email-link">support@kidfocus.app</a> with the subject line "Feature Request".</p>
-            
-            <h1>Privacy and Legal</h1>
-            <p>For questions about privacy, data handling, or legal matters:</p>
-            <ul>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms of Service</a></li>
-                <li>Email: <a href="mailto:privacy@kidfocus.app" class="email-link">privacy@kidfocus.app</a></li>
-            </ul>
-            
-            <h1>App Information</h1>
-            <div class="support-section">
-                <h3>📱 Current Version</h3>
-                <p>KidFocus v1.0.0</p>
-                
-                <h3>🔄 Updates</h3>
-                <p>We regularly update KidFocus with new features and improvements. Enable automatic updates in your App Store settings to always have the latest version.</p>
-                
-                <h3>📋 System Requirements</h3>
-                <ul>
-                    <li>iOS 15.0 or later</li>
-                    <li>iPhone, iPad, or iPod touch</li>
-                    <li>Apple ID for iCloud sync</li>
-                    <li>Internet connection for cloud features</li>
-                </ul>
-            </div>
-            
-            <a href="index.html" class="back-link">← Back to Home</a>
-        </div>
+        </footer>
     </div>
 </body>
-</html> 
+</html>
