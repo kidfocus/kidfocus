@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KidFocus - Fun Family Task Management</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -52,6 +54,23 @@
             overflow: hidden;
         }
         
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 50%, rgba(240, 147, 251, 0.9) 100%);
+            z-index: 1;
+        }
+        
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -61,6 +80,7 @@
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
             animation: float 20s ease-in-out infinite;
+            z-index: 2;
         }
         
         @keyframes float {
@@ -70,7 +90,7 @@
         
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 800px;
         }
         
@@ -147,6 +167,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 2;
         }
         
         .floating-element {
@@ -269,6 +290,14 @@
         .feature-card > * {
             position: relative;
             z-index: 2;
+        }
+        
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 25px;
         }
         
         .feature-icon {
@@ -416,7 +445,7 @@
         
         .screenshot-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -424,10 +453,11 @@
         .screenshot-card {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 20px;
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             transition: transform 0.3s ease;
             border: 2px solid transparent;
+            overflow: hidden;
         }
         
         .screenshot-card:hover {
@@ -435,18 +465,13 @@
             border-color: var(--primary);
         }
         
-        .screenshot-placeholder {
+        .screenshot-image {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--primary), var(--orange));
+            height: 400px;
+            object-fit: cover;
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 600;
             margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .screenshot-title {
@@ -626,6 +651,10 @@
             .floating-elements {
                 display: none;
             }
+            
+            .screenshot-image {
+                height: 300px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -648,6 +677,9 @@
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
+            <div class="hero-background">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/hero.jpg" alt="KidFocus Hero" loading="eager">
+            </div>
             <div class="floating-elements">
                 <div class="floating-element">🎯</div>
                 <div class="floating-element">⭐</div>
@@ -672,37 +704,37 @@
             <p class="features-subtitle">Everything you need to make task management fun and engaging for the whole family</p>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">📝</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/tasks%20instantly.jpg" alt="Tasks Instantly" class="feature-image">
                     <h3>Smart Task Creation</h3>
                     <p>Create colorful, engaging tasks with points, stickers, and educational themes that make children excited to participate.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">⏰</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/task%20completion.jpg" alt="Task Completion" class="feature-image">
                     <h3>Focus Timer</h3>
                     <p>Beautiful Pomodoro-style timer with fun animations, sound effects, and visual rewards to help kids stay focused.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/earn%20rewards.jpg" alt="Earn Rewards" class="feature-image">
                     <h3>Reward System</h3>
                     <p>Meaningful rewards, achievement badges, and point tracking that celebrate every success and encourage positive behavior.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/track%20progress.jpg" alt="Track Progress" class="feature-image">
                     <h3>Progress Tracking</h3>
                     <p>Beautiful charts and detailed activity history that help both parents and children see growth and celebrate milestones.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/family%20taskmanager.jpg" alt="Family Task Manager" class="feature-image">
                     <h3>Family Dashboard</h3>
                     <p>Comprehensive overview of all children's activities, progress, and achievements in one beautiful, easy-to-use interface.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/add%20child.jpg" alt="Add Child" class="feature-image">
                     <h3>Privacy & Security</h3>
                     <p>Secure cloud storage with Apple's CloudKit and family-focused privacy controls to keep your data safe and private.</p>
                 </div>
@@ -764,27 +796,39 @@
             <p class="screenshots-subtitle">Beautiful, intuitive design that kids love and parents trust</p>
             <div class="screenshot-grid">
                 <div class="screenshot-card">
-                    <div class="screenshot-placeholder">📱 Task Dashboard</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/tasks.jpg" alt="Task Dashboard" class="screenshot-image">
                     <div class="screenshot-title">Child Dashboard</div>
                     <div class="screenshot-desc">Colorful, engaging interface designed specifically for children</div>
                 </div>
                 
                 <div class="screenshot-card">
-                    <div class="screenshot-placeholder">⏰ Focus Timer</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/task%20completion.jpg" alt="Focus Timer" class="screenshot-image">
                     <div class="screenshot-title">Focus Timer</div>
                     <div class="screenshot-desc">Beautiful Pomodoro timer with fun animations</div>
                 </div>
                 
                 <div class="screenshot-card">
-                    <div class="screenshot-placeholder">🏆 Rewards</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/earn%20rewards.jpg" alt="Rewards" class="screenshot-image">
                     <div class="screenshot-title">Reward Center</div>
                     <div class="screenshot-desc">Celebrate achievements with points and badges</div>
                 </div>
                 
                 <div class="screenshot-card">
-                    <div class="screenshot-placeholder">📊 Progress</div>
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/track%20progress.jpg" alt="Progress" class="screenshot-image">
                     <div class="screenshot-title">Progress Tracking</div>
                     <div class="screenshot-desc">Visual charts showing growth and achievements</div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/build%20early%20productivity.jpg" alt="Build Productivity" class="screenshot-image">
+                    <div class="screenshot-title">Build Early Productivity</div>
+                    <div class="screenshot-desc">Help kids develop essential life skills early</div>
+                </div>
+                
+                <div class="screenshot-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/family%20taskmanager.jpg" alt="Family Dashboard" class="screenshot-image">
+                    <div class="screenshot-title">Family Dashboard</div>
+                    <div class="screenshot-desc">Manage all your children's tasks in one place</div>
                 </div>
             </div>
         </section>
@@ -871,4 +915,4 @@
         </footer>
     </div>
 </body>
-</html> 
+</html>
