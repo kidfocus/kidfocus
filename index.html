@@ -60,7 +60,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 50%, rgba(240, 147, 251, 0.9) 100%);
             z-index: 1;
         }
         
@@ -68,19 +67,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-            z-index: 2;
         }
         
         @keyframes float {
@@ -161,13 +147,7 @@
         }
         
         .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
+            display: none;
         }
         
         .floating-element {
@@ -294,8 +274,8 @@
         
         .feature-image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: 450px;
+            object-fit: contain;
             border-radius: 15px;
             margin-bottom: 25px;
         }
@@ -381,6 +361,7 @@
         
         .testimonial-card {
             background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
@@ -679,22 +660,6 @@
         <section class="hero">
             <div class="hero-background">
                 <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/hero.jpg" alt="KidFocus Hero" loading="eager">
-            </div>
-            <div class="floating-elements">
-                <div class="floating-element">🎯</div>
-                <div class="floating-element">⭐</div>
-                <div class="floating-element">🏆</div>
-                <div class="floating-element">📚</div>
-                <div class="floating-element">🎨</div>
-                <div class="floating-element">🌟</div>
-            </div>
-            <div class="hero-content">
-                <div class="logo">🎯 KidFocus</div>
-                <div class="tagline">Where Fun Meets Responsibility</div>
-                <div class="subtitle">Transform daily tasks into exciting adventures that kids love and parents appreciate</div>
-                <a href="https://apple.co/4mmZc5L" class="download-btn">
-                    📱 Download on the App Store
-                </a>
             </div>
         </section>
         
