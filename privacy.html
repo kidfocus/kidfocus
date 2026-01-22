@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - KidFocus</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,348 +14,395 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #45B7D1;
+            --success: #96CEB4;
+            --warning: #FFEAA7;
+            --purple: #A29BFE;
+            --orange: #FD79A8;
+            --text-dark: #2D3436;
+            --text-light: #636E72;
+            --bg-light: #F8F9FA;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
-            background: white;
-            min-height: 100vh;
+            padding: 0 20px;
         }
         
-        header {
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px 0;
-            border-bottom: 2px solid #f0f0f0;
-            margin-bottom: 40px;
+            color: white;
+            overflow: hidden;
         }
         
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #007AFF;
-            margin-bottom: 10px;
-        }
-        
-        .page-title {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .last-updated {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .content {
-            line-height: 1.8;
-        }
-        
-        h1 {
-            font-size: 1.8rem;
-            color: #333;
-            margin: 30px 0 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.4rem;
-            color: #444;
-            margin: 25px 0 12px 0;
-        }
-        
-        h3 {
-            font-size: 1.2rem;
-            color: #555;
-            margin: 20px 0 10px 0;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        
-        .highlight {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #007AFF;
-            margin: 20px 0;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin: 30px 0;
-            color: #007AFF;
+        .hero-download-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: white;
+            padding: 12px 24px;
             text-decoration: none;
-            font-weight: 500;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
         
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        .data-table th,
-        .data-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .data-table th {
-            background-color: #f8f9fa;
-            font-weight: bold;
+        .hero-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+            .hero-download-btn {
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Fredoka', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: white;
+            border-radius: 30px;
+            padding: 80px 40px;
+            margin: 60px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .content-section h2 {
+            font-family: 'Fredoka', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .content-section h3 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .content-section ul, .content-section ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .content-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            padding: 5px 0;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
             
-            .logo {
+            .content-section {
+                padding: 40px 20px;
+            }
+            
+            .content-section h2 {
                 font-size: 2rem;
             }
             
-            .page-title {
+            .content-section h3 {
                 font-size: 1.5rem;
-            }
-            
-            .data-table {
-                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="logo">🎯 KidFocus</div>
-            <h1 class="page-title">Privacy Policy</h1>
-            <p class="last-updated">Last updated: January 2025</p>
-        </header>
-        
-        <div class="content">
-            <div class="highlight">
-                <strong>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you use KidFocus.</strong>
+        <!-- Hero Section -->
+        <section class="hero">
+            <a href="https://apple.co/4mmZc5L" class="hero-download-btn" target="_blank" rel="noopener noreferrer">
+                📱 Download Now
+            </a>
+            <div class="hero-background">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/hero.jpg" alt="KidFocus Hero" loading="eager">
             </div>
+            <div class="hero-content">
+                <h1>🔒 Privacy Policy</h1>
+            </div>
+        </section>
+        
+        <!-- Privacy Policy Content -->
+        <section class="content-section">
+            <h2>Your Privacy Matters</h2>
+            <p>At KidFocus, we take your family's privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
             
-            <h1>1. Information We Collect</h1>
-            <h2>1.1 Information You Provide</h2>
-            <p>We collect information you provide directly to us, including:</p>
+            <h3>Information We Collect</h3>
+            <p><strong>Account Information:</strong> When you create an account, we collect basic information such as your name and email address (for parents) or a login code (for children).</p>
+            
+            <p><strong>Task Data:</strong> We store the tasks you create, assign, and complete within the app. This includes task titles, descriptions, due dates, and completion status.</p>
+            
+            <p><strong>Progress Data:</strong> We track points, badges, streaks, and other progress metrics to help motivate children and allow parents to monitor their children's achievements.</p>
+            
+            <p><strong>Profile Information:</strong> If you choose to add a profile picture, we store it securely using Apple's CloudKit infrastructure.</p>
+            
+            <h3>How We Use Your Information</h3>
             <ul>
-                <li>Account information (name, email address)</li>
-                <li>Child profiles and information</li>
-                <li>Tasks and activities you create</li>
-                <li>Progress data and achievements</li>
-                <li>Communication with our support team</li>
+                <li>To provide and improve our family task management services</li>
+                <li>To sync data across your devices using Apple CloudKit</li>
+                <li>To send notifications about tasks and achievements</li>
+                <li>To personalize your experience within the app</li>
             </ul>
             
-            <h2>1.2 Information Collected Automatically</h2>
-            <p>When you use our App, we automatically collect:</p>
+            <h3>Data Storage and Security</h3>
+            <p><strong>Apple CloudKit:</strong> All data is stored securely using Apple's CloudKit service, which provides enterprise-grade security and encryption.</p>
+            
+            <p><strong>Local Storage:</strong> Some data may be stored locally on your device for offline access and improved performance.</p>
+            
+            <p><strong>No Third-Party Sharing:</strong> We do not share your data with third parties, advertisers, or analytics companies. Your family's information stays private.</p>
+            
+            <h3>Children's Privacy</h3>
+            <p>KidFocus is designed with children's privacy in mind:</p>
             <ul>
-                <li>Device information (device type, operating system)</li>
-                <li>App usage data and analytics</li>
-                <li>Performance and crash reports</li>
-                <li>IP address and general location</li>
+                <li>Children use simple 6-character login codes instead of email addresses</li>
+                <li>No personal information is required from children</li>
+                <li>All data is stored securely and only accessible by the parent account</li>
+                <li>We comply with COPPA (Children's Online Privacy Protection Act) requirements</li>
             </ul>
             
-            <h2>1.3 Information from Third Parties</h2>
-            <p>We may receive information from:</p>
-            <ul>
-                <li>Apple Sign In (authentication data)</li>
-                <li>App Store (purchase information)</li>
-                <li>CloudKit (data synchronization)</li>
-            </ul>
-            
-            <h1>2. How We Use Your Information</h1>
-            <p>We use the information we collect to:</p>
-            <ul>
-                <li>Provide and maintain the KidFocus service</li>
-                <li>Process your subscription and payments</li>
-                <li>Personalize your experience</li>
-                <li>Send important updates and notifications</li>
-                <li>Improve our App and develop new features</li>
-                <li>Provide customer support</li>
-                <li>Ensure security and prevent fraud</li>
-                <li>Comply with legal obligations</li>
-            </ul>
-            
-            <h1>3. Data Storage and Security</h1>
-            <h2>3.1 Cloud Storage</h2>
-            <p>Your data is stored securely using Apple's CloudKit service, which provides:</p>
-            <ul>
-                <li>End-to-end encryption</li>
-                <li>Secure data centers</li>
-                <li>Automatic backups</li>
-                <li>Compliance with privacy regulations</li>
-            </ul>
-            
-            <h2>3.2 Data Security</h2>
-            <p>We implement appropriate security measures to protect your information:</p>
-            <ul>
-                <li>Encryption of data in transit and at rest</li>
-                <li>Secure authentication through Apple Sign In</li>
-                <li>Regular security assessments</li>
-                <li>Access controls and monitoring</li>
-            </ul>
-            
-            <h1>4. Data Sharing and Disclosure</h1>
-            <h2>4.1 We Do Not Sell Your Data</h2>
-            <p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
-            
-            <h2>4.2 Limited Sharing</h2>
-            <p>We may share your information only in the following circumstances:</p>
-            <ul>
-                <li>With your explicit consent</li>
-                <li>To comply with legal obligations</li>
-                <li>To protect our rights and safety</li>
-                <li>With service providers who assist in app operations (under strict confidentiality agreements)</li>
-            </ul>
-            
-            <h2>4.3 Service Providers</h2>
-            <p>We work with trusted service providers who help us operate the App:</p>
-            <ul>
-                <li>Apple (CloudKit, App Store, Sign In)</li>
-                <li>Analytics providers (for app improvement)</li>
-                <li>Customer support platforms</li>
-            </ul>
-            
-            <h1>5. Children's Privacy</h1>
-            <h2>5.1 COPPA Compliance</h2>
-            <p>We are committed to protecting children's privacy and comply with the Children's Online Privacy Protection Act (COPPA).</p>
-            
-            <h2>5.2 Parental Consent</h2>
-            <p>For children under 13, we require parental consent before collecting personal information. Parents can:</p>
-            <ul>
-                <li>Review their child's information</li>
-                <li>Request deletion of their child's data</li>
-                <li>Refuse further collection of information</li>
-                <li>Control their child's account settings</li>
-            </ul>
-            
-            <h1>6. Your Rights and Choices</h1>
-            <h2>6.1 Access and Control</h2>
+            <h3>Your Rights</h3>
             <p>You have the right to:</p>
             <ul>
-                <li>Access your personal information</li>
-                <li>Correct inaccurate information</li>
-                <li>Delete your account and data</li>
-                <li>Export your data</li>
-                <li>Opt out of certain communications</li>
-            </ul>
-            
-            <h2>6.2 Account Settings</h2>
-            <p>You can manage your privacy settings through the App:</p>
-            <ul>
-                <li>Update your profile information</li>
-                <li>Control notification preferences</li>
-                <li>Manage child profiles</li>
-                <li>Delete individual tasks or activities</li>
+                <li>Access your data at any time through the app</li>
                 <li>Delete your account and all associated data</li>
+                <li>Request a copy of your data</li>
+                <li>Opt out of notifications (adjustable in device settings)</li>
             </ul>
             
-            <h2>6.3 Account Deletion</h2>
-            <p>You can delete your account at any time through the App:</p>
-            <ol>
-                <li>Open the KidFocus app</li>
-                <li>Go to Settings (gear icon)</li>
-                <li>Tap "Delete Account"</li>
-                <li>Follow the confirmation steps</li>
-            </ol>
-            <p><strong>Important:</strong> Account deletion is permanent and cannot be undone. When you delete your account:</p>
-            <ul>
-                <li>All your personal data will be permanently deleted</li>
-                <li>All your tasks, activities, and progress will be removed</li>
-                <li>If you are a parent, all child accounts will also be deleted</li>
-                <li>You will need to create a new account if you want to use the app again</li>
-            </ul>
-            <p>If you have a subscription, you should also cancel it in your Apple ID settings to avoid future charges.</p>
+            <h3>Data Deletion</h3>
+            <p>You can delete your account and all associated data at any time through the app settings. When you delete your account, all data is permanently removed from our systems.</p>
             
-            <h1>7. Data Retention</h1>
-            <p>We retain your information for as long as necessary to:</p>
-            <ul>
-                <li>Provide the KidFocus service</li>
-                <li>Comply with legal obligations</li>
-                <li>Resolve disputes</li>
-                <li>Enforce our agreements</li>
-            </ul>
-            <p>When you delete your account, we will delete your personal information within 30 days, except where retention is required by law.</p>
+            <h3>Changes to This Policy</h3>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page and updating the "Last Updated" date.</p>
             
-            <h1>8. International Data Transfers</h1>
-            <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your data in accordance with this Privacy Policy.</p>
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+            <p><strong>Email:</strong> <a href="mailto:support@kidfocus.app" style="color: var(--primary);">support@kidfocus.app</a></p>
+            <p><strong>Support Page:</strong> <a href="support.html" style="color: var(--primary);">kidfocus.github.io/kidfocus/support.html</a></p>
             
-            <h1>9. Cookies and Tracking</h1>
-            <p>Our App may use cookies and similar technologies to:</p>
-            <ul>
-                <li>Remember your preferences</li>
-                <li>Analyze app usage</li>
-                <li>Improve performance</li>
-                <li>Provide personalized content</li>
-            </ul>
-            <p>You can control cookie settings through your device settings.</p>
-            
-            <h1>10. Changes to This Privacy Policy</h1>
-            <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by:</p>
-            <ul>
-                <li>Posting the updated policy in the App</li>
-                <li>Sending you an email notification</li>
-                <li>Displaying a notice in the App</li>
-            </ul>
-            <p>Your continued use of the App after changes constitutes acceptance of the updated Privacy Policy.</p>
-            
-            <h1>11. Contact Us</h1>
-            <div class="contact-info">
-                <p><strong>If you have questions about this Privacy Policy or our privacy practices, please contact us:</strong></p>
-                <p>Email: privacy@kidfocus.app</p>
-                <p>Support: support@kidfocus.app</p>
-                <p>Website: <a href="index.html">kidfocus.app</a></p>
+            <p style="margin-top: 40px; font-size: 0.9rem; color: var(--text-light);"><strong>Last Updated:</strong> January 2025</p>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎯 KidFocus</h3>
+                    <p>Making family task management fun and engaging for everyone.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">📧</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Features</h3>
+                    <div class="footer-links">
+                        <a href="index.html#features">Task Management</a>
+                        <a href="index.html#features">Focus Timer</a>
+                        <a href="index.html#features">Rewards</a>
+                        <a href="index.html#features">Progress Tracking</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="mailto:support@kidfocus.app">support@kidfocus.app</a>
+                        <a href="support.html">Help Center</a>
+                        <a href="support.html">Feedback</a>
+                        <a href="#">Partnership</a>
+                    </div>
+                </div>
             </div>
             
-            <h1>12. Legal Basis for Processing (EU Users)</h1>
-            <p>If you are in the European Union, our legal basis for processing your personal information includes:</p>
-            <ul>
-                <li>Consent (for optional features and communications)</li>
-                <li>Contract performance (to provide the KidFocus service)</li>
-                <li>Legitimate interests (to improve our service and ensure security)</li>
-                <li>Legal obligations (to comply with applicable laws)</li>
-            </ul>
-            
-            <h1>13. California Privacy Rights (CCPA)</h1>
-            <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information we collect and how we use it.</p>
-            
-            <a href="index.html" class="back-link">← Back to Home</a>
-        </div>
+            <div class="copyright">
+                © 2025 KidFocus. All rights reserved. Made with ❤️ for families everywhere.
+            </div>
+        </footer>
     </div>
 </body>
-</html> 
+</html>
