@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - KidFocus</title>
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -45,13 +47,14 @@
         /* Hero Section */
         .hero {
             position: relative;
-            min-height: 60vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             overflow: hidden;
+            margin-top: 80px;
         }
         
         .hero-download-btn {
@@ -118,6 +121,82 @@
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+        
+        .nav-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--orange));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .nav-download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
         /* Content Section */
         .content-section {
             background: white;
@@ -139,6 +218,81 @@
             background: linear-gradient(45deg, var(--secondary), var(--accent));
             opacity: 0.05;
             border-radius: 50%;
+        }
+        
+        .privacy-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .privacy-feature-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .privacy-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--orange));
+        }
+        
+        .privacy-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .privacy-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .privacy-feature-card h4 {
+            font-family: 'Fredoka', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .privacy-feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .showcase-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .showcase-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .showcase-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
         }
         
         .content-section h2 {
@@ -260,6 +414,19 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                margin-top: 70px;
+                min-height: 50vh;
+            }
+            
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -275,10 +442,37 @@
             .content-section h3 {
                 font-size: 1.5rem;
             }
+            
+            .privacy-feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .image-showcase {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/Appicon%20.jpg" alt="KidFocus Logo">
+                <span>🎯 KidFocus</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="support.html">Support</a>
+                <a href="https://apple.co/4mmZc5L" class="nav-download-btn" target="_blank" rel="noopener noreferrer">
+                    📱 Download Now
+                </a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
@@ -290,6 +484,7 @@
             </div>
             <div class="hero-content">
                 <h1>🔒 Privacy Policy</h1>
+                <p class="hero-subtitle">Your family's privacy is our top priority</p>
             </div>
         </section>
         
@@ -297,6 +492,38 @@
         <section class="content-section">
             <h2>Your Privacy Matters</h2>
             <p>At KidFocus, we take your family's privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our app.</p>
+            
+            <!-- Privacy Features Grid -->
+            <div class="privacy-feature-grid">
+                <div class="privacy-feature-card">
+                    <div class="privacy-feature-icon">🔐</div>
+                    <h4>Secure by Design</h4>
+                    <p>Built on Apple CloudKit with enterprise-grade encryption and security protocols.</p>
+                </div>
+                <div class="privacy-feature-card">
+                    <div class="privacy-feature-icon">👨‍👩‍👧‍👦</div>
+                    <h4>Family First</h4>
+                    <p>Your data stays within your family. No sharing with third parties or advertisers.</p>
+                </div>
+                <div class="privacy-feature-card">
+                    <div class="privacy-feature-icon">🛡️</div>
+                    <h4>COPPA Compliant</h4>
+                    <p>Fully compliant with children's privacy protection regulations and best practices.</p>
+                </div>
+            </div>
+            
+            <!-- Image Showcase -->
+            <div class="image-showcase">
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/family%20taskmanager.jpg" alt="Family Task Manager">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/track%20progress.jpg" alt="Track Progress">
+                </div>
+                <div class="showcase-card">
+                    <img src="https://raw.githubusercontent.com/kidfocus/kidfocus/refs/heads/main/add%20child.jpg" alt="Add Child">
+                </div>
+            </div>
             
             <h3>Information We Collect</h3>
             <p><strong>Account Information:</strong> When you create an account, we collect basic information such as your name and email address (for parents) or a login code (for children).</p>
@@ -316,11 +543,24 @@
             </ul>
             
             <h3>Data Storage and Security</h3>
-            <p><strong>Apple CloudKit:</strong> All data is stored securely using Apple's CloudKit service, which provides enterprise-grade security and encryption.</p>
             
-            <p><strong>Local Storage:</strong> Some data may be stored locally on your device for offline access and improved performance.</p>
-            
-            <p><strong>No Third-Party Sharing:</strong> We do not share your data with third parties, advertisers, or analytics companies. Your family's information stays private.</p>
+            <div class="privacy-feature-grid feature-grid-margin">
+                <div class="privacy-feature-card">
+                    <div class="privacy-feature-icon">☁️</div>
+                    <h4>Apple CloudKit</h4>
+                    <p>All data is stored securely using Apple's CloudKit service, which provides enterprise-grade security and encryption.</p>
+                </div>
+                <div class="privacy-feature-card">
+                    <div class="privacy-feature-icon">📱</div>
+                    <h4>Local Storage</h4>
+                    <p>Some data may be stored locally on your device for offline access and improved performance.</p>
+                </div>
+                <div class="privacy-feature-card">
+                    <div class="privacy-feature-icon">🚫</div>
+                    <h4>No Third-Party Sharing</h4>
+                    <p>We do not share your data with third parties, advertisers, or analytics companies. Your family's information stays private.</p>
+                </div>
+            </div>
             
             <h3>Children's Privacy</h3>
             <p>KidFocus is designed with children's privacy in mind:</p>
@@ -348,10 +588,10 @@
             
             <h3>Contact Us</h3>
             <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
-            <p><strong>Email:</strong> <a href="mailto:support@kidfocus.app" style="color: var(--primary);">support@kidfocus.app</a></p>
-            <p><strong>Support Page:</strong> <a href="support.html" style="color: var(--primary);">kidfocus.github.io/kidfocus/support.html</a></p>
+            <p><strong>Email:</strong> <a href="mailto:support@kidfocus.app">support@kidfocus.app</a></p>
+            <p><strong>Support Page:</strong> <a href="support.html">kidfocus.github.io/kidfocus/support.html</a></p>
             
-            <p style="margin-top: 40px; font-size: 0.9rem; color: var(--text-light);"><strong>Last Updated:</strong> January 2025</p>
+            <p class="last-updated"><strong>Last Updated:</strong> January 2025</p>
         </section>
         
         <!-- Footer -->
